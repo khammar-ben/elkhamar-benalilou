@@ -118,12 +118,12 @@ export function Projects() {
                 className="bg-[#151515] border border-[#262626] rounded-xl p-5 md:p-6 flex flex-col hover:border-[#ea580c]/30 transition-colors h-full shadow-lg"
               >
                 {/* Project Screen Image */}
-                <div className="w-full h-40 md:h-48 rounded-lg overflow-hidden mb-5 border border-[#2a2a2a] relative group-hover:border-[#ea580c]/50 transition-colors bg-[#111]">
+                <div className="w-full h-40 md:h-48 rounded-lg overflow-hidden mb-5 border border-[#2a2a2a] relative transition-colors bg-[#111]">
                   <Image 
                     src={project.image} 
                     alt={project.title} 
                     fill
-                    className="object-cover object-top opacity-60 hover:opacity-100 transition-all duration-500"
+                    className="object-cover object-top transition-all duration-500 brightness-90 hover:brightness-110 hover:scale-[1.02]"
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 400px"
                     loading="lazy"
                   />
