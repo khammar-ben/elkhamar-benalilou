@@ -45,11 +45,8 @@ export function Hero() {
         {/* LEFT COLUMN */}
         <div className="flex-1 space-y-7 max-w-2xl">
           {/* Status Pill / Easter Egg Terminal */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 border border-[#f97316]/30 rounded text-[10px] sm:text-[11px] font-mono text-[#f97316] uppercase tracking-widest bg-[#f97316]/5 cursor-pointer relative"
+          <div
+            className="inline-flex items-center gap-2 px-3 py-1 border border-[#f97316]/30 rounded text-[10px] sm:text-[11px] font-mono text-[#f97316] uppercase tracking-widest bg-[#f97316]/5 cursor-pointer relative animate-fade-in"
             title="Access Kernel Terminal (Easter Egg)"
             onClick={() => {
               const cmd = window.prompt("TERMINAL ACCESS GRANTED.\nEnter command (e.g., 'whoami' or 'sudo hire'):");
@@ -67,36 +64,27 @@ export function Hero() {
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#f97316] animate-pulse shadow-[0_0_8px_#f97316]"></span>
             SYSTEM.KERNEL :: CLICK FOR TERMINAL
-          </motion.div>
+          </div>
 
-          {/* Heading */}
-          <motion.h1
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+          {/* Heading — visible immediately for LCP */}
+          <h1
             className="text-[32px] min-[400px]:text-[40px] sm:text-5xl md:text-6xl lg:text-[70px] font-bold text-white tracking-tight leading-[1.1] mb-2"
           >
             Hello, I'm <br />
             <span className="whitespace-nowrap inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#f97316] to-[#3b82f6]">
               Elkhamar BENALILOU
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          <div
             className="text-lg md:text-[21px] text-gray-300 font-sans leading-relaxed mt-4"
           >
             <span className="font-mono text-[#ea580c]">&lt;Architect /&gt;</span> Engineering Beyond Boundaries.
             <br /> Specializing in distributed systems, real-time architecture, <br className="hidden md:block"/> and high-performance applications.
-          </motion.div>
+          </div>
 
           {/* Buttons Row */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+          <div
             className="flex flex-col sm:flex-row gap-4 pt-4"
           >
             <a 
@@ -139,12 +127,9 @@ export function Hero() {
                 <span className="font-bold text-white font-sans text-[15px] leading-tight">GitHub</span>
               </div>
             </a>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
+          <div
             className="pt-6 flex items-center flex-wrap gap-x-4 gap-y-3"
           >
             <span className="text-[11px] font-mono text-gray-500 uppercase tracking-wider">LOADED_MODULES:</span>
@@ -158,7 +143,7 @@ export function Hero() {
                 </span>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* RIGHT COLUMN - CODE EDITOR UI */}
