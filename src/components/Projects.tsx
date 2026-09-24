@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FolderGit2, Book, Star, GitFork, ExternalLink, ChevronRight } from 'lucide-react';
 
@@ -118,13 +119,13 @@ export function Projects() {
               >
                 {/* Project Screen Image */}
                 <div className="w-full h-40 md:h-48 rounded-lg overflow-hidden mb-5 border border-[#2a2a2a] relative group-hover:border-[#ea580c]/50 transition-colors bg-[#111]">
-                  <img 
+                  <Image 
                     src={project.image} 
                     alt={project.title} 
-                    className="w-full h-full object-cover object-top opacity-60 hover:opacity-100 transition-all duration-500"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop';
-                    }}
+                    fill
+                    className="object-cover object-top opacity-60 hover:opacity-100 transition-all duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 400px"
+                    loading="lazy"
                   />
                 </div>
 

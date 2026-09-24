@@ -27,7 +27,7 @@ export default function Home() {
       
       {/* Global Multi-Line Dense Scrolling Command Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 opacity-10 filter blur-[1px] mix-blend-screen flex flex-col h-screen">
-        {[...Array(40)].map((_, i) => {
+        {[...Array(20)].map((_, i) => {
           const text = BG_MARQUEES[i % BG_MARQUEES.length];
           return (
             <motion.div

@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Cpu, Code2, Coffee } from 'lucide-react';
 
@@ -47,10 +48,13 @@ export function About() {
 
             <div className="w-full h-full rounded-full overflow-hidden border-2 border-[#2a2a2a] relative z-10 p-1">
               <div className="w-full h-full rounded-full overflow-hidden relative bg-[#222]">
-                <img 
+                <Image 
                   src="/profile.png" 
                   alt="Benalilou Elkhamar"
-                  className="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                  fill
+                  priority
+                  className="object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                  sizes="160px"
                 />
               </div>
             </div>
