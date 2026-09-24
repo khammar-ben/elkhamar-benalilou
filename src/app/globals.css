@@ -45,3 +45,33 @@
     transform: translateX(-33.33%);
   }
 }
+
+@keyframes marquee-ltr {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-ltr {
+  animation: marquee-ltr 80s linear infinite;
+  will-change: transform;
+}
+
+.marquee-rtl {
+  animation: marquee-rtl 90s linear infinite;
+  will-change: transform;
+}

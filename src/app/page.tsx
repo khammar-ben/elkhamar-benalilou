@@ -1,14 +1,16 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { Hero } from "@/components/Hero";
-import { About } from "@/components/About";
-import { Skills } from "@/components/Skills";
-import { Experience } from "@/components/Experience";
-import { Projects } from "@/components/Projects";
-import { Contact } from "@/components/Contact";
-import { Footer } from "@/components/Footer";
 import { SideNav } from "@/components/SideNav";
-import { motion } from "framer-motion";
+
+// Heavy components loaded only when they scroll into view
+const About     = dynamic(() => import("@/components/About").then(m => ({ default: m.About })), { ssr: false });
+const Skills    = dynamic(() => import("@/components/Skills").then(m => ({ default: m.Skills })), { ssr: false });
+const Experience= dynamic(() => import("@/components/Experience").then(m => ({ default: m.Experience })), { ssr: false });
+const Projects  = dynamic(() => import("@/components/Projects").then(m => ({ default: m.Projects })), { ssr: false });
+const Contact   = dynamic(() => import("@/components/Contact").then(m => ({ default: m.Contact })), { ssr: false });
+const Footer    = dynamic(() => import("@/components/Footer").then(m => ({ default: m.Footer })), { ssr: false });
 
 const BG_MARQUEES = [
   ">_ INITIALIZING CORE SYSTEM ENV... [OK]   ||   RUNNING DIAGNOSTICS... [OK]   ||   IMPORTING DEVELOPER MODULES... [DONE]   ||   SYSTEM.KERNEL RESTORED :: AWAITING COMMAND PORTAL ACCESS...   ||   ",
@@ -21,29 +23,21 @@ const BG_MARQUEES = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#18181A] text-gray-300 overflow-x-hidden selection:bg-[#f97316]/30 selection:text-orange-200 relative">
-      {/* Global Background Grid */}
       {/* Grid Background */}
       <div className="fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0" />
-      
-      {/* Global Multi-Line Dense Scrolling Command Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 opacity-10 filter blur-[1px] mix-blend-screen flex flex-col h-screen">
-        {[...Array(20)].map((_, i) => {
-          const text = BG_MARQUEES[i % BG_MARQUEES.length];
-          return (
-            <motion.div
-              key={i}
-              animate={{ x: i % 2 === 0 ? ["0%", "-50%"] : ["-50%", "0%"] }}
-              transition={{ duration: 60 + (i % 5) * 10, repeat: Infinity, ease: "linear" }}
-              className="font-mono text-sm md:text-base font-bold text-[#4ade80] whitespace-nowrap opacity-40 select-none leading-relaxed"
-            >
-              {text}
-              {text}
-              {text}
-              {text}
-            </motion.div>
-          );
-        })}
+
+      {/* Scrolling Command Background — pure CSS, zero JS cost */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 opacity-10 flex flex-col h-screen">
+        {BG_MARQUEES.map((text, i) => (
+          <div
+            key={i}
+            className={`font-mono text-sm font-bold text-[#4ade80] whitespace-nowrap opacity-40 select-none leading-relaxed ${i % 2 === 0 ? 'marquee-ltr' : 'marquee-rtl'}`}
+          >
+            {text}{text}{text}{text}
+          </div>
+        ))}
       </div>
+
       <div className="relative z-10 w-full">
         <SideNav />
         <Hero />
