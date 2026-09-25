@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 
 const MODULES = ["REACT", "NEXT.JS", "PYTHON", "C#", "TYPESCRIPT", "SQL"];
 
@@ -147,11 +146,8 @@ export function Hero() {
         </div>
 
         {/* RIGHT COLUMN - CODE EDITOR UI */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="flex w-full max-w-[550px] mt-10 lg:mt-0 mx-auto flex-col rounded-xl overflow-hidden border border-[#2a2a2a] bg-[#0c0c0c] shadow-2xl relative shadow-[0_20px_60px_-15px_rgba(249,115,22,0.1)]"
+        <div 
+          className="flex w-full max-w-[550px] mt-10 lg:mt-0 mx-auto flex-col rounded-xl overflow-hidden border border-[#2a2a2a] bg-[#0c0c0c] shadow-2xl relative shadow-[0_20px_60px_-15px_rgba(249,115,22,0.1)] animate-fade-in"
         >
           {/* Editor Header */}
           <div className="bg-[#1e1e1e] border-b border-[#2a2a2a] px-4 py-3 flex items-center justify-between relative z-10">
@@ -270,7 +266,7 @@ export function Hero() {
               </a>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
