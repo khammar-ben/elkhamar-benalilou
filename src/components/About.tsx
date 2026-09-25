@@ -53,6 +53,8 @@ export function About() {
                   alt="Benalilou Elkhamar"
                   fill
                   priority
+                  fetchPriority="high"
+                  quality={90}
                   className="object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
                   sizes="160px"
                 />

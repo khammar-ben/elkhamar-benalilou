@@ -4,13 +4,13 @@ import dynamic from "next/dynamic";
 import { Hero } from "@/components/Hero";
 import { SideNav } from "@/components/SideNav";
 
-// Heavy components loaded only when they scroll into view
-const About     = dynamic(() => import("@/components/About").then(m => ({ default: m.About })), { ssr: false });
-const Skills    = dynamic(() => import("@/components/Skills").then(m => ({ default: m.Skills })), { ssr: false });
-const Experience= dynamic(() => import("@/components/Experience").then(m => ({ default: m.Experience })), { ssr: false });
-const Projects  = dynamic(() => import("@/components/Projects").then(m => ({ default: m.Projects })), { ssr: false });
-const Contact   = dynamic(() => import("@/components/Contact").then(m => ({ default: m.Contact })), { ssr: false });
-const Footer    = dynamic(() => import("@/components/Footer").then(m => ({ default: m.Footer })), { ssr: false });
+// SSR-enabled lazy loading: HTML rendered on server, JS hydrated lazily
+const About      = dynamic(() => import("@/components/About").then(m => ({ default: m.About })));
+const Skills     = dynamic(() => import("@/components/Skills").then(m => ({ default: m.Skills })));
+const Experience = dynamic(() => import("@/components/Experience").then(m => ({ default: m.Experience })));
+const Projects   = dynamic(() => import("@/components/Projects").then(m => ({ default: m.Projects })));
+const Contact    = dynamic(() => import("@/components/Contact").then(m => ({ default: m.Contact })));
+const Footer     = dynamic(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
 const BG_MARQUEES = [
   ">_ INITIALIZING CORE SYSTEM ENV... [OK]   ||   RUNNING DIAGNOSTICS... [OK]   ||   IMPORTING DEVELOPER MODULES... [DONE]   ||   SYSTEM.KERNEL RESTORED :: AWAITING COMMAND PORTAL ACCESS...   ||   ",
